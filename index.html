@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tinggao Cui — Resume</title>
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --muted:#555;
+    --rule:#cfcfcf;
+    --link:#2a4b8d;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    font-size:10.5px;
+    line-height:1.4;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  .page{
+    width:210mm;
+    padding:12mm 15mm 10mm;
+    margin:0 auto;
+  }
+
+  /* Header */
+  h1{
+    font-size:34px;
+    font-weight:800;
+    letter-spacing:-0.5px;
+    margin:0 0 6px;
+  }
+  .title{
+    font-size:13px;
+    font-weight:700;
+    color:var(--link);
+    letter-spacing:0.3px;
+    margin:-2px 0 8px;
+  }
+  .name-rule{border:0;border-top:1px solid var(--rule);margin:0 0 10px;}
+  .summary{
+    margin:8px 0 2px;
+    line-height:1.45;
+  }
+  .contact{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    column-gap:18px;
+    row-gap:2px;
+    margin-bottom:4px;
+  }
+  .contact .label{font-weight:700;}
+  .contact .val{font-weight:700;}
+
+  /* Section headers */
+  h2.section{
+    font-size:15px;
+    font-weight:800;
+    margin:11px 0 2px;
+  }
+  h2.section + hr{border:0;border-top:1px solid var(--rule);margin:0 0 8px;}
+
+  /* Experience / project entry */
+  .entry{margin-bottom:9px;}
+  .entry-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+  }
+  .entry-head .org{font-weight:800;}
+  .entry-head .role{font-weight:800;}
+  .entry-sub{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:3px;
+  }
+  .entry-sub .date{font-weight:700;}
+  .entry-sub .tag{color:var(--muted);text-decoration:underline;font-size:9.5px;}
+
+  .subproj{font-weight:700;margin:5px 0 2px;}
+  ul{margin:2px 0 3px;padding-left:16px;}
+  li{margin:1.5px 0;}
+  .lead{font-weight:700;color:var(--link);}
+  .tech{margin:3px 0 2px;}
+  .tech b{font-weight:700;}
+  a{color:var(--link);text-decoration:none;}
+
+  /* Bottom two-column block */
+  .bottom{
+    display:grid;
+    grid-template-columns:1.55fr 1fr;
+    column-gap:26px;
+    margin-top:6px;
+  }
+  .bottom h3{
+    text-align:center;
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin:0 0 4px;
+  }
+  .bottom .col-rule{border:0;border-top:1px solid var(--rule);margin:0 0 6px;}
+  .bottom ul{padding-left:15px;}
+  .bottom .lang{padding-left:15px;margin:0;}
+  .bottom .lang li{list-style:decimal;}
+
+  .edu-row{display:flex;justify-content:space-between;margin-bottom:7px;}
+  .edu-row .date{font-weight:700;white-space:nowrap;}
+  .edu-row .right{text-align:left;flex:1;padding-left:24px;}
+  .edu-row .school{font-weight:800;}
+  .edu-row ul{margin:1px 0 0;}
+
+  /* Keep logical blocks together across the page break */
+  .entry, .edu-row, .bottom{page-break-inside:avoid;}
+  .subproj{page-break-after:avoid;}
+  h2.section{page-break-after:avoid;}
+
+  /* Screen-only: larger, more readable type + document look. Print/PDF unchanged below. */
+  @media screen{
+    body{font-size:13px;line-height:1.5;background:#f4f4f5;}
+    .page{background:#fff;margin:24px auto;box-shadow:0 1px 6px rgba(0,0,0,.12);}
+    h1{font-size:38px;}
+    .title{font-size:15px;}
+    h2.section{font-size:17px;}
+    .summary{font-size:13.5px;}
+    .entry-head .org,.entry-head .role{font-size:14px;}
+  }
+
+  /* Print: let .page padding be the only margin so PDF export doesn't gain a stray page */
+  @page{size:A4;margin:0;}
+  @media print{
+    body{font-size:10px;}
+    .page{padding:11mm 14mm;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1>Tinggao Cui</h1>
+  <div class="title">AI Agent &amp; LLM Engineer</div>
+  <hr class="name-rule">
+  <div class="contact">
+    <div class="label">Phone Number:</div><div class="val">+49 152 0549 5571</div>
+    <div class="label">E-mail:</div><div class="val">tginfo001@gmail.com</div>
+    <div class="label">Address:</div><div class="val">91052 Erlangen, Germany &middot; open to relocation / remote</div>
+  </div>
+
+  <p class="summary">
+    Full-stack engineer specializing in <b>LLM agent systems</b> &mdash; multi-agent
+    orchestration with <b>LangGraph</b>, tool-calling and <b>MCP</b> servers, RAG, and
+    provider-neutral pipelines across Claude, OpenAI, Gemini and DeepSeek. Ship
+    production GenAI products end-to-end (Python / FastAPI backends, React / TypeScript
+    frontends). Working in English; EU work authorization.
+  </p>
+
+  <!-- ============ AI AGENT PROJECTS ============ -->
+  <h2 class="section">Selected AI Agent Projects</h2>
+  <hr>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="org">APoc &ndash; Multi-LLM Architecture Generative POC Workspace</span>
+      <span class="role">Solo &middot; Multi-Agent Workflow Orchestration + Full-stack</span>
+    </div>
+    <div class="entry-sub">
+      <span class="date">2026</span>
+      <span class="tag">LangGraph &middot; FastAPI &middot; React 19 &middot; DeepSeek / Anthropic</span>
+    </div>
+    <ul>
+      <li><span class="lead">Fan-Out / Fan-In Agent Pipeline:</span> Designed a LangGraph <i>StateGraph</i> with explicit parallelism &mdash; research &rarr; two parallel LLM candidates &rarr; judge (Opus) &rarr; a seven-section document, then a slide deck and four stakeholder-review agents generated concurrently &mdash; with progress streamed to the UI over Server-Sent Events.</li>
+      <li><span class="lead">Tool-Use Grounding &amp; Provider Abstraction:</span> Built a SearXNG + Crawl4AI grounding layer where every claim carries a <code>[s1]</code> citation to a page that was actually crawled; a provider-neutral LLM layer runs the same pipeline on DeepSeek or Anthropic with per-stage model and reasoning-effort assignment for cost/latency control.</li>
+      <li><span class="lead">Human-in-the-Loop Review UX:</span> Built a three-column review workspace (document / AI annotations / comments) with a role-gated edit control, AI holistic-rewrite editing with line-diff preview, per-role approval roll-up, and a full SQLite audit trail.</li>
+      <li><span class="lead">Tested at Both Layers:</span> 27 backend (pytest) and 12 frontend (vitest) test files covering graph nodes, grounding, the AI-edit protocol and every major component.</li>
+    </ul>
+    <div class="tech"><b>Tech Stack:</b> LangGraph, FastAPI, SQLite, SearXNG, Crawl4AI, DeepSeek / Anthropic, React 19, TypeScript, Tailwind v4, Docker</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="org">MaverickJ &ndash; Multi-Agent Debate Decision Engine</span>
+      <span class="role">Solo &middot; Multi-Agent Loop Engineering</span>
+    </div>
+    <div class="entry-sub">
+      <span class="date">2026</span>
+      <span class="tag">LangGraph &middot; LangChain &middot; Pydantic v2 &middot; MCP</span>
+    </div>
+    <ul>
+      <li><span class="lead">Multi-Agent Orchestration:</span> Built a decision engine that runs four role-based agents (Advocate, Critic, Fact-Checker, Moderator) through multi-round structured debate, orchestrated by a LangGraph <i>StateGraph</i> with real-time convergence scoring and conditional termination &mdash; combating LLM sycophancy.</li>
+      <li><span class="lead">Per-Agent Model Routing &amp; Structured Output:</span> Routed each agent to a deliberately chosen model (Claude / OpenAI / Gemini via LangChain) with Pydantic v2 structured outputs; an <i>ArgumentRegistry</i> tracks every argument's lifecycle and emits a structured decision report with surviving pro/con arguments, risks and recommendations.</li>
+      <li><span class="lead">MCP Server &amp; Packaging:</span> Shipped as a Python library, an interactive CLI and an <b>MCP server</b> (Claude Desktop integration), containerized with Docker; demonstrated on real decisions such as a Java-to-Go backend migration and a build-vs-buy analytics-platform choice.</li>
+    </ul>
+    <div class="tech"><b>Tech Stack:</b> LangGraph, LangChain, Pydantic v2, Claude / OpenAI / Gemini, MCP, Docker, Python 3.12</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="org">open-worko &ndash; Cross-Vendor Multi-Agent Collaboration Protocol</span>
+      <span class="role">Solo &middot; Protocol + Infrastructure</span>
+    </div>
+    <div class="entry-sub">
+      <span class="date">2026</span>
+      <span class="tag">TypeScript &middot; Bun &middot; WebSocket &middot; SQLite</span>
+    </div>
+    <ul>
+      <li><span class="lead">Vendor-Neutral Agent Interop:</span> Designed an HTTP + WebSocket protocol and self-hosted hub that lets coding agents from different vendors (Claude Code, Codex) <code>@</code>-mention each other to ask questions, share context and deliver answers in a shared room &mdash; the hub stores threads and routes messages but runs <i>no LLM</i>, keeping all intelligence at each agent's edge.</li>
+      <li><span class="lead">Gateway / Ask / Roster Model:</span> Built a background WebSocket gateway that receives <code>wake</code> events and spawns the local agent to reply, an <code>ask</code> client that fires a query and polls for the answer without staying online, and a roster API for live presence &mdash; persisted in SQLite on a Bun runtime.</li>
+      <li><span class="lead">Distributable Skill Package:</span> Shipped as a one-command installable skill/plugin for both Claude Code (marketplace) and Codex from a single source tree, with cross-platform scripts (macOS / Linux <code>.sh</code> + Windows <code>.ps1</code>).</li>
+    </ul>
+    <div class="tech"><b>Tech Stack:</b> TypeScript, Bun, WebSocket, SQLite, Claude Code / Codex skills</div>
+  </div>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <h2 class="section">Professional Experience</h2>
+  <hr>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="org">Valantic GmbH</span>
+      <span class="role">GenAI / LLM Engineer</span>
+    </div>
+    <div class="entry-sub">
+      <span class="date">04/2025 - Present</span>
+      <span class="tag">GenAI &middot; Agents &middot; Full-stack | Python &middot; TypeScript</span>
+    </div>
+
+    <div class="subproj">Colibri 2.0 &ndash; RAG-based Intelligent Document Chatbot <span style="font-weight:400;color:var(--muted)">(Internal Tool)</span></div>
+    <ul>
+      <li><span class="lead">Product Delivery:</span> Build and maintain Colibri 2.0, valantic's internal GenAI document-chat tool, owning features end-to-end across the React/TypeScript frontend and Python backend services.</li>
+      <li><span class="lead">Full-Stack Modernization:</span> Re-architected the system from a monolithic Streamlit script into a decoupled FastAPI (backend) and React (frontend) application to improve maintainability and UI responsiveness.</li>
+      <li><span class="lead">Privacy-First Architecture:</span> Designed the system for on-premise execution, processing sensitive PDF documents locally to ensure full compliance with data-privacy standards; orchestrated the multi-container stack (API, UI, Vector DB) with Docker Compose.</li>
+      <li><span class="lead">Hybrid Cloud Processing:</span> Offloaded the compute-intensive embedding and chunking stages to a company-controlled private cloud and optimized the chunking pipeline, raising document upload throughput by ~80% &mdash; source files stay on-premise and only extracted text is processed in stateless containers that wipe intermediate data after each run and auto-destroy when idle, keeping data inside the organization's trust boundary.</li>
+      <li><span class="lead">High-Precision RAG:</span> Built custom parsing pipelines for coordinate-level extraction from complex PDFs, served via RESTful APIs.</li>
+    </ul>
+    <div class="tech"><b>Tech Stack:</b> RAG, LangChain, pgvector, FastAPI, Pydantic, Python, React, TypeScript, Azure, Docker</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="org">QDAcity GmbH</span>
+      <span class="role">Full-stack Developer</span>
+    </div>
+    <div class="entry-sub">
+      <span class="date">02/2024 - 03/2025</span>
+      <span class="tag">Full-Stack | Data Migration | API Development | GCP</span>
+    </div>
+    <ul>
+      <li><span class="lead">GCP Migration &amp; Engineering:</span> Executed a legacy Datastore-to-BigQuery migration using a dual-write strategy to ensure zero downtime; mitigated performance risks via parameterized queries, reducing latency for complex saturation analytics.</li>
+      <li><span class="lead">Full-Stack Analytics:</span> Built interactive React dashboards to visualize Project History and Saturation metrics, integrating backend APIs with BigQuery for real-time data reporting.</li>
+    </ul>
+    <div class="tech"><b>Tech Stack:</b> Java, Spring Boot, REST APIs, JavaScript, React, BigQuery, Google Datastore</div>
+  </div>
+
+  <!-- ============ EDUCATION ============ -->
+  <h2 class="section">Education</h2>
+  <hr>
+  <div class="edu-row">
+    <span class="date">04/2022 - 09/2025</span>
+    <span class="right">
+      <span class="school">Friedrich-Alexander University Erlangen-Nürnberg</span>
+      <ul>
+        <li>Medical Engineering (M.Sc.) &mdash; Focus on Medical Imaging and Data Processing</li>
+      </ul>
+    </span>
+  </div>
+  <div class="edu-row">
+    <span class="date">06/2020 - 03/2022</span>
+    <span class="right"><span class="school">Intensive German Language Course</span></span>
+  </div>
+  <div class="edu-row">
+    <span class="date">03/2016 - 06/2020</span>
+    <span class="right">
+      <span class="school">Shenyang Aerospace University, Shenyang, China</span>
+      <ul>
+        <li>Mechatronic Engineering (B.Sc.)</li>
+      </ul>
+    </span>
+  </div>
+
+  <!-- ============ SKILLS + LANGUAGE ============ -->
+  <div class="bottom">
+    <div>
+      <h3>TECHNICAL SKILLS</h3>
+      <hr class="col-rule">
+      <ul>
+        <li><b>AI Agents &amp; Orchestration:</b> LangGraph, multi-agent systems, MCP servers, tool-calling, LangChain, structured outputs (Pydantic)</li>
+        <li><b>LLM &amp; RAG:</b> Claude / OpenAI / Gemini / DeepSeek APIs, RAG, pgvector, prompt &amp; pipeline design, SSE streaming</li>
+        <li><b>Programming Languages:</b> Python, TypeScript, JavaScript, Java</li>
+        <li><b>Frontend:</b> React, TypeScript, HTML5, CSS, Tailwind</li>
+        <li><b>Backend:</b> FastAPI, Spring Boot, REST API, WebSocket, SQLite, PostgreSQL</li>
+        <li><b>Cloud &amp; DevOps:</b> GCP, Azure, Docker, Docker Compose</li>
+        <li><b>Version Control:</b> Git</li>
+      </ul>
+    </div>
+    <div>
+      <h3>LANGUAGE</h3>
+      <hr class="col-rule">
+      <ol class="lang">
+        <li><b>English:</b> Fluent</li>
+        <li><b>German:</b> Upper Intermediate</li>
+        <li><b>Korean:</b> Fluent</li>
+        <li><b>Mandarin:</b> Native</li>
+      </ol>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
